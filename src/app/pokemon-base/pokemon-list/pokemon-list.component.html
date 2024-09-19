@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let pokemon of listOfPokemons">
+      <tr>
+        <app-pokemon-detail [detail]="pokemon"></app-pokemon-detail>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

@@ -1,0 +1,32 @@
+<label htmlFor="animal">ANIMAL:</label>
+<input [(ngModel)]="favAnimal" name="animal" />
+<label htmlFor="pokemon">POKEMON:</label>
+<input type="text" name="pokemon" #pokemon />
+<button (click)="handleClick(pokemon.value)">PASS</button>
+<ul>
+  <li *ngFor="let poke of listOfPokemons2">
+    <p
+      [class.is-special]="poke.isSpecial"
+      [style.fontSize]="poke.isSpecial ? '14px' : '12px'"
+    >
+      {{ "pokemon: " + poke.name + " power: " + poke.power }}
+    </p>
+  </li>
+</ul>
+<ul *ngIf="someTrueValue">
+  <li *ngFor="let poke of listOfPokemons2">
+    <p
+      [ngClass]="{
+        'is-special': poke.isSpecial,
+        'is-electrical': poke.isElectric
+      }"
+    >
+      {{ "pokemon: " + poke.name + " power: " + poke.power }}
+    </p>
+  </li>
+</ul>
+<p>{{ favAnimal }}</p>
+
+<ng-container *ngIf="someTrueValue; then sukces; else dupaZbita"></ng-container>
+<ng-template #dupaZbita><h1>No, dupa zbita!</h1></ng-template>
+<ng-template #sukces><h1>Udało się!</h1></ng-template>
