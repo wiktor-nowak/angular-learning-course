@@ -7,9 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { InputBindingComponent } from './input-binding/input-binding.component';
 import { NgFor } from '@angular/common';
 import { PokemonBaseModule } from './pokemon-base/pokemon-base.module';
+import { PokemonService } from './services/pokemon.service';
+import { PokemonTemplateFormComponent } from './pokemon-template-form/pokemon-template-form.component';
 
 @NgModule({
-  declarations: [AppComponent, InputBindingComponent],
+  declarations: [
+    AppComponent,
+    InputBindingComponent,
+    PokemonTemplateFormComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -17,7 +23,7 @@ import { PokemonBaseModule } from './pokemon-base/pokemon-base.module';
     NgFor,
     PokemonBaseModule,
   ],
-  providers: [],
+  providers: [PokemonService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -9,7 +9,10 @@
   <tbody>
     <ng-container *ngFor="let pokemon of listOfPokemons">
       <tr>
-        <app-pokemon-detail [detail]="pokemon"></app-pokemon-detail>
+        <app-pokemon-detail
+          [detail]="pokemon"
+          (remove)="handleRemove($event)"
+        ></app-pokemon-detail>
       </tr>
     </ng-container>
   </tbody>
