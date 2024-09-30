@@ -1,0 +1,21 @@
+<h1>MY REACTIVE FORM</h1>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label>USERNAME: </label>
+        <input type="text" formControlName="username" [class.invalid]="checkIsValid('username')">
+        <span *ngIf="checkIsValid('username', 'required')" style="color: red;">This field is required.</span>
+    </div>
+    <div>
+        <label>EMAIL: </label>
+        <input type="text" formControlName="email">
+    </div>
+    <div>
+        <label>PASSWORD: </label>
+        <input type="text" formControlName="password">
+    </div>
+    <select formControlName="roleId">
+        <option *ngFor="let role of roles" [ngValue]="role.id">{{ role.title }}</option>
+    </select>
+    <button type="submit">Register</button>
+</form>

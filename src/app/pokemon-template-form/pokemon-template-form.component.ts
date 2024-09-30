@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Pokemon } from 'src/app/models/pokemon';
+import { Pokemon, PokemonType } from 'src/app/models/pokemon';
 import { PokemonService } from '../services/pokemon.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-pokemon-template-form',
@@ -9,7 +10,33 @@ import { PokemonService } from '../services/pokemon.service';
 })
 export class PokemonTemplateFormComponent implements OnInit {
   pokemon!: Pokemon;
+  pokemonTypes: PokemonType[] = [
+    {
+      key: 0,
+      value: "fire"
+    },
+    {
+      key: 1,
+      value: "water"
+    },
+    {
+      key: 2,
+      value: "rock"
+    },
+    {
+      key: 3,
+      value: "electricity"
+    }
+  ]
   constructor(private pokemonService: PokemonService) {}
+
+  toggleIsCool(object: boolean) {
+    console.log(object)
+  }
+
+  handleSubmit(form: NgForm) {
+    console.log(form.form.value)
+  }
 
   ngOnInit() {
     this.pokemonService.getPokemon(1).subscribe((data: Pokemon) => {
