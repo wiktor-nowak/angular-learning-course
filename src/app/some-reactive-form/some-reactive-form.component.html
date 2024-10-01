@@ -14,8 +14,15 @@
         <label>PASSWORD: </label>
         <input type="text" formControlName="password">
     </div>
+    <div>
+        <label for="pet">PET: </label>
+        <input type="text" id="pet" formControlName="pet">
+    </div>
     <select formControlName="roleId">
         <option *ngFor="let role of roles" [ngValue]="role.id">{{ role.title }}</option>
     </select>
     <button type="submit">Register</button>
 </form>
+
+<div *ngIf="pet">{{pet.value}}</div>
+<div>PIPE EXAMPLE: {{ CURRENCY_AMOUNT | currency:'EUR' }}</div>

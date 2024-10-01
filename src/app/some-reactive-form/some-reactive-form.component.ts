@@ -11,13 +11,15 @@ export class SomeReactiveFormComponent implements OnInit {
     username: ['', Validators.required],
     password: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    roleId: [1, Validators.required]
+    roleId: [1, Validators.required],
+    pet: ['Pola', Validators.required]
   })
   isSubmitTriggered: boolean = false;
   roles = [
     { id: 1, title: 'dev'},
     { id: 2, title: 'qa'}
   ]
+  CURRENCY_AMOUNT: number = 23.24
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -26,6 +28,8 @@ export class SomeReactiveFormComponent implements OnInit {
       console.log('do some changes', roleId)
     })
   }
+
+  get pet() { return this.registerForm.get('pet') }
 
   onSubmit() {
     console.log('submitted form ', this.registerForm.value, this.registerForm.invalid)
