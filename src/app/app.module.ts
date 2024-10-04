@@ -8,19 +8,24 @@ import { InputBindingComponent } from './input-binding/input-binding.component';
 import { NgFor } from '@angular/common';
 import { PokemonBaseModule } from './pokemon-base/pokemon-base.module';
 import { PokemonService } from './services/pokemon.service';
-import { PokemonTemplateFormComponent } from './pokemon-template-form/pokemon-template-form.component';
 import { UnlessDirective } from './directives/unless/unless.directive';
 import { HighlightDirective } from './directives/highlight/highlight.directive';
 import { SomeReactiveFormComponent } from './some-reactive-form/some-reactive-form.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { HomeComponent } from './home/home.component';
+import { TodoComponent } from './todo/todo.component';
+import { TodosService } from './services/todos.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputBindingComponent,
-    PokemonTemplateFormComponent,
     UnlessDirective,
     HighlightDirective,
     SomeReactiveFormComponent,
+    NotfoundComponent,
+    HomeComponent,
+    TodoComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,9 +33,9 @@ import { SomeReactiveFormComponent } from './some-reactive-form/some-reactive-fo
     FormsModule,
     NgFor,
     PokemonBaseModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [PokemonService],
+  providers: [PokemonService, TodosService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

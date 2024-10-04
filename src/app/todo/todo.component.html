@@ -1,0 +1,5 @@
+<div>{{ todoProps.text }}</div>
+<div>Change detection: {{ checkRender() }}</div>
+<div>Filter {{ filter$ | async }}</div>
+<button (click)="changeText()">CHANGE</button>
+<button (click)="changeFilter()">CHANGE FILTER</button>
